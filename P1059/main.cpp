@@ -1,4 +1,4 @@
-/*
+
 #include<iostream>
 #include<algorithm>
 #include<functional>
@@ -19,12 +19,12 @@ int main()
         std::cout<<num[i]<<" ";
     }
 }
- */
 
 
 // ====================================================
 
 
+/*
 #include <iostream>
 #include <set>
 
@@ -45,6 +45,7 @@ int main(){
     }
     return 0;
 }
+ */
 
 
 /*
