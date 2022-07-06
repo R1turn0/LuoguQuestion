@@ -1,10 +1,9 @@
 #include <iostream>
 #include <algorithm>
 
-int n;
 
 std::basic_string<char> funtion (std::string s1, std::string s2){
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < s1.size(); i++) {
         if (s1[i] < s2[i]) {
             return "-1";
         }
@@ -13,6 +12,7 @@ std::basic_string<char> funtion (std::string s1, std::string s2){
 }
 
 int main() {
+    int n;
     std::string x, z, y;
 
     std::cin >> n;
