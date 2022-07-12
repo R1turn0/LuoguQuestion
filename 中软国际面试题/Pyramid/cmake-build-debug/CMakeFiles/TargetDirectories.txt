@@ -1,0 +1,3 @@
+/home/r1turn0/WorkSpace/Cpp/中软国际面试题/Pyramid/cmake-build-debug/CMakeFiles/Pyramid.dir
+/home/r1turn0/WorkSpace/Cpp/中软国际面试题/Pyramid/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/r1turn0/WorkSpace/Cpp/中软国际面试题/Pyramid/cmake-build-debug/CMakeFiles/rebuild_cache.dir
