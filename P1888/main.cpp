@@ -40,3 +40,9 @@ long long gcd(long long a,long long b)
     }
     return a/aa;
 }
+
+
+/*
+ * 正弦值=直角边/斜边
+ * 且最小正弦值=最短直角边/斜边
+ */
