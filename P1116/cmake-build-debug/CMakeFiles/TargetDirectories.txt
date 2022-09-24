@@ -1,3 +1,0 @@
-/home/r1turn0/WorkSpace/C++/P1116/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/r1turn0/WorkSpace/C++/P1116/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/r1turn0/WorkSpace/C++/P1116/cmake-build-debug/CMakeFiles/P1116.dir

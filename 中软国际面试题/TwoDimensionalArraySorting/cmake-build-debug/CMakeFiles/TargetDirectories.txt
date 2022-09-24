@@ -1,3 +1,0 @@
-/home/r1turn0/WorkSpace/Cpp/中软国际面试题/TwoDimensionalArraySorting/cmake-build-debug/CMakeFiles/TwoDimensionalArraySorting.dir
-/home/r1turn0/WorkSpace/Cpp/中软国际面试题/TwoDimensionalArraySorting/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/r1turn0/WorkSpace/Cpp/中软国际面试题/TwoDimensionalArraySorting/cmake-build-debug/CMakeFiles/rebuild_cache.dir

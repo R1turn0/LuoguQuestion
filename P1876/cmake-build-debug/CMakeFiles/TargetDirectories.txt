@@ -1,3 +1,0 @@
-/home/r1turn0/WorkSpace/Cpp/Luogu/P1876/cmake-build-debug/CMakeFiles/P1876.dir
-/home/r1turn0/WorkSpace/Cpp/Luogu/P1876/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/r1turn0/WorkSpace/Cpp/Luogu/P1876/cmake-build-debug/CMakeFiles/rebuild_cache.dir
