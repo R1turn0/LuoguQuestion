@@ -11,8 +11,8 @@ link_directories(${PROJECT_SOURCE_DIR}/lib/)
 add_executable(main main.c)
 
 # 链接静态库
-#target_link_libraries(main myLib.a)
-target_link_libraries(main myDll.so)
+target_link_libraries(main myLib.a)
+#target_link_libraries(main myDll.so)
 
 
 
