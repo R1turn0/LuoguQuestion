@@ -30,7 +30,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
     hwnd = CreateWindow(
         szAppName,
         TEXT("Windows Test!"),
-        WS_OVERLAPPEDWINDOW, 
+        WS_OVERLAPPEDWINDOW | WS_VSCROLL | WS_HSCROLL,  // WS_VSCROLL | WS_HSCROLL 垂直、水平滚动条
         CW_USEDEFAULT,
         CW_USEDEFAULT,
         CW_USEDEFAULT,
@@ -105,6 +105,17 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
     //case WM_NCLBUTTONDOWN:    // WM_NCLBUTTONUP
     //    MessageBox(hwnd, TEXT("非客户区"), TEXT("这是哪？"), MB_OK);
     //    return 0;
+
+    case WM_SIZE:
+        hdc = GetDC(hwnd);
+
+        StringCchPrintf(szBuffer, 128, TEXT("客户当前的分辨率是：%d * %d px"), LOWORD(lParam), HIWORD(lParam));
+        StringCchLength(szBuffer, 128, &iTarget);
+        TextOut(hdc, 10, 10, szBuffer, iTarget);
+
+        ReleaseDC(hwnd, hdc);
+        return 0;
+
 
     case WM_CLOSE:      // 发送为窗口或应用程序应终止的信号
         if (MessageBox(hwnd, TEXT("是否退出"), TEXT("退出"), MB_YESNO) == IDYES)
