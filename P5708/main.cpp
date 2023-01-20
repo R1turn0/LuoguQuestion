@@ -2,7 +2,7 @@
 #include "math.h"
 
 int main() {
-    int a, b, c;
+    double a, b, c;
     double p;
     double S;
 
