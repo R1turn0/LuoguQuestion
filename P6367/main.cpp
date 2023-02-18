@@ -1,14 +1,19 @@
+#include <map>
+#include <string>
 #include <iostream>
 
+int n;
+std::map<std::string, int> mp;
+
 int main() {
-    int n;
-    char *name[100];
     std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        std::cin >> *name[i];
+    int ans = 0;
+    std::string tmp;
+    for (int i = 0; i < n; ++i) {
+        std::cin >> tmp;
+        int k = i - mp[tmp];
+        if (mp[tmp]++ > k) ++ans;
     }
-    for (int i = 0; i < n; i++) {
-        std::cout << *name[i];
-    }
+    std::cout << ans << std::endl;
     return 0;
 }
