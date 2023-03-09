@@ -1,6 +1,12 @@
 #include <iostream>
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    int n;
+    int sun = 0;
+    std::cin >> n;
+    for (int i = 1; i <= n; i++) {
+        sun += i;
+    }
+    std::cout << sun;
     return 0;
 }
