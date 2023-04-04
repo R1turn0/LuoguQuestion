@@ -1,11 +1,14 @@
-#include <iostream>
+#include <cstdio>
 
-int main() {
-    int n, sun = 0;
-    std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        sun += i;
-    }
-    std::cout << "Hello, World!" << std::endl;
+int n, f[30];
+int main()
+{
+    //递推实现卡特兰数
+    scanf("%d", &n);
+    f[0] = 1, f[1] = 1;
+    for(int i=2; i<=n; i++)
+        for(int j=0; j<i; j++)
+            f[i] += f[j] * f[i-j-1];     //递推公式
+    printf("%d", f[n]);
     return 0;
 }
