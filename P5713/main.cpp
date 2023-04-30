@@ -1,6 +1,11 @@
 #include <iostream>
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    int n;
+    std::cin >> n;
+    if (11 + 3 * n < 5 * n)
+        std::cout << "Luogu" << std::endl;
+    else
+        std::cout << "Local" << std::endl;
     return 0;
 }
