@@ -1,6 +1,12 @@
 #include <iostream>
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    int a, i = 0;
+    std::cin >> a;
+    while (a) {
+        a /= 2;
+        i++;
+    }
+    std::cout << i;
     return 0;
 }
