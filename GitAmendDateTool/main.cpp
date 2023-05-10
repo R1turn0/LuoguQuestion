@@ -9,11 +9,12 @@ int main() {
     const char *str_may[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
                                "Aug", "Sep", "Oct", "Nov", "Dec"};
 
-    std::cout << "输入需要的指令数量：";
+    std::cout << "Please enter the need to the number: ";
     std::cin >> n;
-    std::cout << "输入开始日期：";
+    std::cout<< "Please input start Date: ";
     scanf("%4d %2d %2d", &year, &may, &day);
 //    std::cin >> year >> may >> day;
+    std::cout << std::endl;
     week = return_week_day(year, may, day);
     while (n--) {
         std::cout << "git commit --amend --date \"" << str_week[week - 1] << " " << str_may[may - 1] << " " << day
@@ -24,7 +25,7 @@ int main() {
             ((may == 4 || may == 6 || may == 9 || may == 11) && day > 30) ||
             (may == 2 && ((year % 4 == 0 && day > 29 ) || (year % 4 != 0 && day > 28)))) {
             may++;
-            day -= 30;
+            day = 1;
         }
         if (week > 7) {
             week -= 7;
