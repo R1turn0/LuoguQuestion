@@ -1,6 +1,8 @@
 #include <iostream>
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    long long a, b;
+    std::cin >> a >> b;
+    std::cout << a * b;
     return 0;
 }
