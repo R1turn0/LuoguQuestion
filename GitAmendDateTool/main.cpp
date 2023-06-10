@@ -1,30 +1,34 @@
 #include <iostream>
+#include <iomanip>
 
 int return_week_day(unsigned int, unsigned int, unsigned int);
 
 int main() {
     int n;
-    int year, may, day, week;
+    int year, month, day, week;
     const char *str_week[7] = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
     const char *str_may[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
                                "Aug", "Sep", "Oct", "Nov", "Dec"};
 
     std::cout << "Please enter the need to the number: ";
     std::cin >> n;
-    std::cout<< "Please input start Date: ";
-    scanf("%4d %2d %2d", &year, &may, &day);
-//    std::cin >> year >> may >> day;
+    std::cout<< "Please enter the start date (YYYY MM DD): ";
+    scanf("%4d %2d %2d", &year, &month, &day);
+//    std::cin >> year >> month >> day;
     std::cout << std::endl;
-    week = return_week_day(year, may, day);
+    week = return_week_day(year, month, day);
     while (n--) {
-        std::cout << "git commit --amend --date \"" << str_week[week - 1] << " " << str_may[may - 1] << " " << day
-                  << " 11:30:00 " << year << " +0800\"" << std::endl;
+        // 可以使用std::setfill和std::setw设置输出宽度和填充零，确保日期部分的输出格式一致
+        std::cout << "git commit --amend --date \""
+                  << str_week[week - 1] << " "
+                  << str_may[month - 1] << " "
+                  << day << " 11:30:00 " << year << " +0800\"" << std::endl;
         day++;
         week++;
-        if (((may == 1 || may == 3 || may == 5 || may == 7 || may == 8 || may == 10 || may == 12) && day > 31) ||
-            ((may == 4 || may == 6 || may == 9 || may == 11) && day > 30) ||
-            (may == 2 && ((year % 4 == 0 && day > 29 ) || (year % 4 != 0 && day > 28)))) {
-            may++;
+        if (((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && day > 31) ||
+            ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30) ||
+            (month == 2 && ((year % 4 == 0 && day > 29 ) || (year % 4 != 0 && day > 28)))) {
+            month++;
             day = 1;
         }
         if (week > 7) {
@@ -56,5 +60,6 @@ int return_week_day(unsigned int year, unsigned int month, unsigned int day) {
         week = 7;
     }
 
+    getchar();
     return week;
 }
