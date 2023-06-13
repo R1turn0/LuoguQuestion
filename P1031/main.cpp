@@ -1,22 +1,25 @@
 #include <iostream>
 
-int num[101];
-
 int main() {
-    int n, age = 0, tmp = 0;
-    std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        std::cin >> num[i];
-        age += num[i];
+    int a, p = 0, js = 0;
+    std::cin >> a;
+    int q[a];
+    for (int y = 0; y < a; y++) {
+        std::cin >> q[y];
+        p += q[y];
     }
-    age /= n;
-    for (int i = 0; i < n; i++) {
-        num[i] -= age;
+    p /= a;
+    for (int y = 0; y < a; y++) q[y] -= p;
+    for (int y = 0; y < a; y++) {
+        if (q[y] == 0) continue;
+        q[y + 1] += q[y];
+        js++;
     }
-
+    std::cout << js;
     return 0;
 }
 
 /*
  *  1 -1 4 -2 -1
+ *  金山 城市沙滩
  */
