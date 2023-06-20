@@ -1,6 +1,13 @@
 #include <iostream>
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    int num1, num2;
+    std::cin >> num1 >> num2;
+    if (num1 > num2)
+        std::cout << ">";
+    else if (num1 == num2)
+        std::cout << "=";
+    else
+        std::cout << "<";
     return 0;
 }
