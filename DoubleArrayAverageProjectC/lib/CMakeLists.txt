@@ -40,3 +40,9 @@ SET_TARGET_PROPERTIES(libmyLib PROPERTIES LINKER_LANGUAGE C
 # XXX_OUTPUT_DIRECTORY：指定输出命令；
 # OUTPUT_NAME：DLL库输出名称；
 # PREFIX：DLL库前缀，若不设置，可能会加默认前缀；如，cygmy_dll.dll
+
+# msbuild YourSolution.sln /p:Configuration=Release /p:Platform=x64
+# 在上述命令中，"YourSolution.sln" 是您生成的解决方案文件的路径。"/p:Configuration=Release" 和 "/p:Platform=x64" 分别指定了要构建的配置和目标平台。您可以根据您的项目设置相应的配置和平台。
+# 如果项目具有多个项目或构建目标，可以在 MSBuild 命令中使用"/t:YourProject"指定要构建的项目或目标
+# 另外，MSBuild 还支持指定任务名称。任务是执行特定操作的构建组件。例如，Clean 是一个常见的任务，用于清理构建输出。
+# msbuild YourSolution.sln /t:Clean
