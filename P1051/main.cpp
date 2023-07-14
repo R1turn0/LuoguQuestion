@@ -1,12 +1,12 @@
 #include <iostream>
 
 struct student {
-    char name[20];
-    int age;
-    int ageClass;
-    std::string cadre;
-    std::string west;
-    int thesis;
+    std::string name;   // 姓名
+    int age;            // 平均成绩
+    int ageClass;       // 班级平均成绩
+    char cadre;         // 是否为学生干部
+    char west;          // 是否为西部学生
+    int thesis;         // 论文数
 };
 
 int main() {
