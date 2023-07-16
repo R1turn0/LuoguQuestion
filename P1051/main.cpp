@@ -25,7 +25,7 @@ int scholarship(student stu, int &money) {
 }
 
 int main() {
-    int n;
+    int n, max = 0;
     std::cin >> n;
     student stu[n];
     int money[n];
@@ -35,5 +35,12 @@ int main() {
                  >> stu[i].cadre >> stu[i].west >> stu[i].thesis;
         scholarship(stu[i], money[i]);
     }
+    for (int i = 0; i < n - 1; i++) {
+        if (money[i] > money[i + 1]) {
+            max = i;
+        }
+    }
+    std::cout << stu[max].name << std::endl;
+    std::cout << money[max] << std::endl;
     return 0;
 }
