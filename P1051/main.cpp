@@ -10,14 +10,14 @@ struct student {
     int thesis;         // 论文数
 };
 
-int scholarship(student stu, int &money) {
-    if (stu.age > 80 && stu.thesis >=1)
+int scholarship(const student& stu, int &money) {
+    if (stu.age > 80 && stu.thesis >= 1)
         money += 8000;
     if (stu.age > 85 && stu.ageClass > 80)
         money += 4000;
     if (stu.age > 90)
         money += 2000;
-    if (stu.west == 'Y')
+    if (stu.age > 85 && stu.west == 'Y')
         money += 1000;
     if (stu.ageClass > 80 && stu.cadre == 'Y')
         money += 850;
@@ -25,7 +25,7 @@ int scholarship(student stu, int &money) {
 }
 
 int main() {
-    int n, max = 0;
+    int n, max = 0, sum = 0;
     std::cin >> n;
     student stu[n];
     int money[n];
@@ -34,13 +34,15 @@ int main() {
         std::cin >> stu[i].name >> stu[i].age >> stu[i].ageClass
                  >> stu[i].cadre >> stu[i].west >> stu[i].thesis;
         scholarship(stu[i], money[i]);
+        sum += money[i];
     }
-    for (int i = 0; i < n - 1; i++) {
-        if (money[i] > money[i + 1]) {
+    for (int i = 0; i < n; i++) {
+        if (money[i] > money[max]) {
             max = i;
         }
     }
     std::cout << stu[max].name << std::endl;
     std::cout << money[max] << std::endl;
+    std::cout << sum << std::endl;
     return 0;
 }
