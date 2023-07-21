@@ -56,3 +56,48 @@ target_link_libraries(main myDll)
 #
 ## 为指定项目添加 include 路径
 # target_include_directories(tutorial PUBLIC "${PROJECT_BINARY_DIR}" ${EXTRA_INCLUDES})
+#
+#
+#
+#
+################################################################
+#
+# cmake_minimum_required(VERSION 3.5)
+# project(sample01)
+# 
+# #set platform
+# if(CMAKE_CL_64)
+#     set(PLATFORM x64)
+# else()
+#     set(PLATFORM x86)
+# endif()
+# 
+# set(ROOTDIR ${CMAKE_SOURCE_DIR})
+# #link_directories(${CMAKE_BINARY_DIR}/lib/${PLATFORM})
+# link_directories(${CMAKE_SOURCE_DIR}/lib/${PLATFORM})
+# ############################################################
+# # Create an executable
+# ############################################################
+# 
+# # Add an executable with the above sources
+# add_executable(sample01
+#     src/main.cpp
+# 
+# )
+# target_include_directories(sample01
+#     PRIVATE 
+# ${PROJECT_SOURCE_DIR}/include
+# )
+# target_link_libraries( sample01
+#     PRIVATE 
+#         libcrypto_static.lib
+# 		libssl_static.lib
+# 		WS2_32.Lib
+# 		SlcCryptStatic.lib
+# )
+#
+################################################################
+#
+#
+#
+#
