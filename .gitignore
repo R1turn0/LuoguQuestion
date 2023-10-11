@@ -677,3 +677,4 @@ FodyWeavers.xsd
 ### PS ###
 .idea/
 .vscode/
+build
