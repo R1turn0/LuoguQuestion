@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <hwid.h>
 
 int demo_asm() {
     long var;
