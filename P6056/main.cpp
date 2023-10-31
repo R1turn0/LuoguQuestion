@@ -19,4 +19,5 @@ int main() {
         }//千万不要丢
     }
     std::cout << s << ' ' << I << ' ' << r;
+    return 0;
 }
