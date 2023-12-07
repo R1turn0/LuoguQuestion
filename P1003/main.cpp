@@ -12,7 +12,8 @@ int main() {
     int n;
     std::cin >> n;
     for (int i = 0; i < n; i++) {
-        std::cin >> a[i] >> b[i] >> g[i] >> k[i];
+//        std::cin >> a[i] >> b[i] >> g[i] >> k[i];
+        scanf_s("%d%d%d%d", &a[i], &b[i], &g[i], &k[i]);
     }
     std::cin >> x >> y;
 
@@ -23,7 +24,8 @@ int main() {
     }
 
 //    std::cout << x << " " << y << std::endl;
-    std::cout << (result == 0 ? -1 : result) << std::endl;
+//    std::cout << (result == 0 ? -1 : result) << std::endl;
+    printf("%d", result == 0 ? -1 : result);
 
     return 0;
 }
