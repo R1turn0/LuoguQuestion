@@ -1,25 +1,36 @@
 #include <iostream>
+#include <algorithm>
+#include <cmath>
 
 std::string addInBaseN(std::string num1, std::string num2, int base);
 int charToDigit(char c);
 char digitToChar(int digit);
+std::string reversed(std::string num);
+bool isPalindrome(int num);
+bool isPalindromeInBaseN(const std::string& number, int base);
+int convertToDecimal(const std::string& nBaseNumber, int base);
 
 int main() {
-    std::string num1, num2;
+    std::string num;
     int base;
-    int n, m;
-    std::cout << "请输入第一个数字: ";
-    std::cin >> num1;
 
-    std::cout << "请输入第二个数字: ";
-    std::cin >> num2;
-
-    std::cout << "请输入进制数: ";
     std::cin >> base;
 
+//    std::cout << "Input first num: ";
+    std::cin >> num;
+
     // 进行加法运算并输出结果
-    std::string result = addInBaseN(num1, num2, base);
-    std::cout << "相加的结果为: " << result << std::endl;
+//    std::string result = addInBaseN(num, reversed(num), base);
+//    std::cout << "The sun is: ";
+//    std::cout << result << std::endl;
+    for (int i = 1; i <= 30; i++) {
+        num = addInBaseN(num, reversed(num), base);
+        if (isPalindromeInBaseN(num, base)) {
+            std::cout << "STEP=" << i << std::endl;
+            return 0;
+        }
+    }
+    std::cout << "Impossible!" << std::endl;
     return 0;
 }
 
@@ -38,8 +49,8 @@ std::string addInBaseN(std::string num1, std::string num2, int base) {
 
     //低位到高位相加
     for (int i = num1.length() - 1; i >= 0; --i) {
-        static int digit1 = charToDigit(num1[i]);
-        static int digit2 = charToDigit(num2[i]);
+        int digit1 = charToDigit(num1[i]);
+        int digit2 = charToDigit(num2[i]);
 
         int sum = digit1 + digit2 + carry;
         carry = sum / base;
@@ -72,4 +83,56 @@ char digitToChar(int digit) {
     } else {
         return 'A' + digit - 10;
     }
+}
+
+std::string reversed(std::string num) {
+//    int reversedNumber;
+    std::reverse(num.begin(), num.end());
+//    reversedNumber = std::stoi(num);
+
+    return num;
+}
+
+bool isPalindrome(int num) {
+    int originalNum = num;
+    int reversedNum = 0;
+
+    while (num > 0) {
+        int digit = num % 10;
+        reversedNum = reversedNum * 10 + digit;
+        num /= 10;
+    }
+
+    return originalNum == reversedNum;
+}
+
+bool isPalindromeInBaseN(const std::string& number, int base) {
+    std::string originalNumber = number;
+    std::string reversedNumber;
+
+    // 反转字符串
+    for (auto it = originalNumber.rbegin(); it != originalNumber.rend(); ++it) {
+        reversedNumber += *it;
+    }
+
+    return originalNumber == reversedNumber;
+}
+
+int convertToDecimal(const std::string& nBaseNumber, int base) {
+    int decimalNumber = 0;
+
+    for (size_t i = 0; i < nBaseNumber.length(); ++i) {
+        char digitChar = nBaseNumber[i];
+
+        int digitValue;
+        if (isdigit(digitChar)) {
+            digitValue = digitChar - '0';
+        } else {
+            digitValue = 10 + (toupper(digitChar) - 'A');
+        }
+
+        decimalNumber += digitValue * static_cast<int>(pow(base, nBaseNumber.length() - i - 1));
+    }
+
+    return decimalNumber;
 }
