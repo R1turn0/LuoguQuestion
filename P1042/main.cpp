@@ -2,7 +2,6 @@
 
 int scorer(const std::string &fraction, int ps);
 
-
 int main() {
     std::string fraction;
     while (true) {
@@ -19,8 +18,6 @@ int main() {
         }
         fraction.append(input);
     }
-
-
 
 //    std::cout << fraction << std::endl;
     scorer(fraction, 11);
