@@ -3,7 +3,7 @@
 
 void OneLine(int len);
 void TwoLine(int len);
-void ThreeLine(int lun, std::string work);
+void ThreeLine(int len, std::string work);
 
 int main() {
     std::string work;
