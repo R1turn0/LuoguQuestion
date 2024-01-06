@@ -150,6 +150,7 @@ auto pd = []() -> bool {
         if (c[i] != c[l - 1 - i]) return false;
     return true;
 };
+
 auto add = []() {
     for (int i = 0; i < l; i++) { d[l - i - 1] = c[i]; }
     l += 2;
