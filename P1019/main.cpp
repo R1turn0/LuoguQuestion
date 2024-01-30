@@ -3,8 +3,9 @@
 static std::string str[20];
 static int use[20], length = 0, n;
 
-int canlink(std::string str1, std::string str2);
 void solve(std::string strnow, int lengthnow);
+
+int canlink(std::string str1, std::string str2);
 
 int main() {
     std::cin >> n;
@@ -13,16 +14,6 @@ int main() {
     solve(' ' + str[n], 1);
     std::cout << length << std::endl;
     return 0;
-}
-
-int canlink(std::string str1, std::string str2) {
-    for (int i = 1; i < std::min(str1.length(), str2.length()); i++) { // 重叠长度从1开始，直到最短的字符串长度-1（因为不能包含）
-        int flag = 1;
-        for (int j = 0; j < i; j++)
-            if (str1[str1.length() - i + j] != str2[j]) flag = 0; // 逐个检测是否相等
-        if (flag) return i; // 检测完毕相等则立即return
-    }
-    return 0; // 无重叠部分，返回0
 }
 
 void solve(std::string strnow, int lengthnow) {
@@ -36,4 +27,14 @@ void solve(std::string strnow, int lengthnow) {
             use[i]--;
         }
     }
+}
+
+int canlink(std::string str1, std::string str2) {
+    for (int i = 1; i < std::min(str1.length(), str2.length()); i++) { // 重叠长度从1开始，直到最短的字符串长度-1（因为不能包含）
+        int flag = 1;
+        for (int j = 0; j < i; j++)
+            if (str1[str1.length() - i + j] != str2[j]) flag = 0; // 逐个检测是否相等
+        if (flag) return i; // 检测完毕相等则立即return
+    }
+    return 0; // 无重叠部分，返回0
 }
