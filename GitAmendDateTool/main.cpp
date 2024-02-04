@@ -12,7 +12,7 @@ int main() {
 
     std::cout << "Please enter the need to the number: ";
     std::cin >> n;
-    std::cout<< "Please enter the start date (YYYY MM DD): ";
+    std::cout << "Please enter the start date (YYYY MM DD): ";
     scanf("%4d %2d %2d", &year, &month, &day);
 //    std::cin >> year >> month >> day;
     std::cout << std::endl;
@@ -25,9 +25,10 @@ int main() {
                   << day << " 11:30:00 " << year << " +0800\"" << std::endl;
         day++;
         week++;
-        if (((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && day > 31) ||
+        if (((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) &&
+             day > 31) ||
             ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30) ||
-            (month == 2 && ((year % 4 == 0 && day > 29 ) || (year % 4 != 0 && day > 28)))) {
+            (month == 2 && ((year % 4 == 0 && day > 29) || (year % 4 != 0 && day > 28)))) {
             month++;
             day = 1;
         }
@@ -41,6 +42,7 @@ int main() {
 int return_week_day(unsigned int year, unsigned int month, unsigned int day) {
     int week = 0;
     unsigned int y = 0, c = 0, m = 0, d = 0;
+
     if (month == 1 || month == 2) {
         c = (year - 1) / 100;
         y = (year - 1) % 100;
@@ -53,9 +55,10 @@ int return_week_day(unsigned int year, unsigned int month, unsigned int day) {
         d = day;
     }
 
-    week = y + y / 4 + c / 4 - 2 * c + 26 * (m + 1) / 10 + d - 1; //蔡勒公式
-    week = week >= 0 ? (week % 7) : (week % 7 + 7); //week为负时取模
-    if (week == 0) //星期日不作为一周的第一天
+    // 蔡勒公式：计算星期的公式
+    week = y + y / 4 + c / 4 - 2 * c + 26 * (m + 1) / 10 + d - 1;
+    week = week >= 0 ? (week % 7) : (week % 7 + 7); // week为负时取模
+    if (week == 0) // 星期日不作为一周的第一天
     {
         week = 7;
     }

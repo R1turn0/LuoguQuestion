@@ -50,6 +50,7 @@
 //    return 0;
 //}
 
+// https://blog.csdn.net/nanhuaibeian/article/details/115748836
 #include <iostream>
 
 int *get_next(std::string patt);
