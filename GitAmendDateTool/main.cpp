@@ -1,9 +1,8 @@
 #include <iostream>
-#include <iomanip>
 
 int return_week_day(unsigned int, unsigned int, unsigned int);
 
-int main() {
+int main(int argc, char *argv[]) {
     int n;
     int year, month, day, week;
     const char *str_week[7] = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
@@ -18,7 +17,6 @@ int main() {
     std::cout << std::endl;
     week = return_week_day(year, month, day);
     while (n--) {
-        // 可以使用std::setfill和std::setw设置输出宽度和填充零，确保日期部分的输出格式一致
         std::cout << "git commit --amend --date \""
                   << str_week[week - 1] << " "
                   << str_may[month - 1] << " "
@@ -36,6 +34,8 @@ int main() {
             week -= 7;
         }
     }
+
+    getchar();
     return 0;
 }
 
@@ -55,14 +55,12 @@ int return_week_day(unsigned int year, unsigned int month, unsigned int day) {
         d = day;
     }
 
-    // 蔡勒公式：计算星期的公式
+    // Zeller's Congruence (Zeller formula): formula for calculating days of the week
     week = y + y / 4 + c / 4 - 2 * c + 26 * (m + 1) / 10 + d - 1;
-    week = week >= 0 ? (week % 7) : (week % 7 + 7); // week为负时取模
-    if (week == 0) // 星期日不作为一周的第一天
-    {
+    week = week >= 0 ? (week % 7) : (week % 7 + 7); // Modulo when week is negative
+    if (week == 0) { // Sunday is not the first day of the week
         week = 7;
     }
 
-    getchar();
     return week;
 }
