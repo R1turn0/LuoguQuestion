@@ -3,20 +3,38 @@
 int return_week_day(unsigned int, unsigned int, unsigned int);
 
 int main(int argc, char *argv[]) {
-    int n;
-    int year, month, day, week;
+    int num = 0, year = 0, month = 0, day = 0, week = 0;
     const char *str_week[7] = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
     const char *str_may[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
                                "Aug", "Sep", "Oct", "Nov", "Dec"};
 
-    std::cout << "Please enter the need to the number: ";
-    std::cin >> n;
-    std::cout << "Please enter the start date (YYYY MM DD): ";
-    scanf("%4d %2d %2d", &year, &month, &day);
-//    std::cin >> year >> month >> day;
-    std::cout << std::endl;
+    // Check the number of parameters
+    if (argc != 5) {
+        std::cerr << "Usage: " << argv[0] << "<num> <year> <month> <day>" << std::endl;
+        return 1;
+    }
+    // Convert argument to integer
+    try {
+        num = std::stoi(argv[1]);
+        year = std::stoi(argv[2]);
+        month = std::stoi(argv[3]);
+        day = std::stoi(argv[4]);
+    } catch (std::invalid_argument const& e) {
+        std::cerr << "Invalid argument: " << e.what() << std::endl;
+        return 1;
+    } catch (std::out_of_range const& e) {
+        std::cerr << "Out of range: " << e.what() << std::endl;
+        return 1;
+    }
+
+//    std::cout << "Please enter the need to the number: ";
+//    std::cin >> num;
+//    std::cout << "Please enter the start date (YYYY MM DD): ";
+//    scanf("%4d %2d %2d", &year, &month, &day);
+//    std::cout << std::endl;
+
     week = return_week_day(year, month, day);
-    while (n--) {
+    while (num--) {
         std::cout << "git commit --amend --date \""
                   << str_week[week - 1] << " "
                   << str_may[month - 1] << " "
@@ -34,8 +52,6 @@ int main(int argc, char *argv[]) {
             week -= 7;
         }
     }
-
-    getchar();
     return 0;
 }
 
@@ -61,6 +77,5 @@ int return_week_day(unsigned int year, unsigned int month, unsigned int day) {
     if (week == 0) { // Sunday is not the first day of the week
         week = 7;
     }
-
     return week;
 }
