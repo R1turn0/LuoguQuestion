@@ -8,9 +8,16 @@ int main(int argc, char *argv[]) {
     const char *str_may[12] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
                                "Aug", "Sep", "Oct", "Nov", "Dec"};
 
+#ifdef _DEBUG
+    std::cout << "Please enter the need to the number: ";
+    std::cin >> num;
+    std::cout << "Please enter the start date (YYYY MM DD): ";
+    scanf_s("%4d %2d %2d", &year, &month, &day, 4, 2, 2);
+    std::cout << std::endl;
+#else
     // Check the number of parameters
     if (argc != 5) {
-        std::cerr << "Usage: " << argv[0] << "<num> <year> <month> <day>" << std::endl;
+        std::cerr << "Usage: " << argv[0] << " <num> <year> <month> <day>" << std::endl;
         return 1;
     }
     // Convert argument to integer
@@ -26,12 +33,7 @@ int main(int argc, char *argv[]) {
         std::cerr << "Out of range: " << e.what() << std::endl;
         return 1;
     }
-
-//    std::cout << "Please enter the need to the number: ";
-//    std::cin >> num;
-//    std::cout << "Please enter the start date (YYYY MM DD): ";
-//    scanf("%4d %2d %2d", &year, &month, &day);
-//    std::cout << std::endl;
+#endif
 
     week = return_week_day(year, month, day);
     while (num--) {
