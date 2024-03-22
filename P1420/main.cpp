@@ -8,8 +8,7 @@ int main() {
         std::cin >> b;
         if (b == a + 1) {
             temp++;
-        }
-        else {
+        } else {
             if (temp > sum) sum = temp;
             temp = 0;
         }
