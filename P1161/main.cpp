@@ -1,6 +1,6 @@
 #include <iostream>
 
-static int light[5000];
+static int light[2000000];
 double a;
 int t;
 
